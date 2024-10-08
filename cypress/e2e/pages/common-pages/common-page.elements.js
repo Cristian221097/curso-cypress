@@ -1,6 +1,6 @@
 export class CommonPageElements{
 
-    static get topMenu{
+    static get topMenu(){
         return{
             get home(){
                 return cy.contains('a',"Home");
@@ -29,6 +29,10 @@ export class CommonPageElements{
             },
 
         }
+    }
+
+    static get signedUser(){
+        return cy.get("a#nameofuser")
     }
 
 }
