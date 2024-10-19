@@ -9,7 +9,7 @@ export class CartElements{
 }
 
 
-//td[text()='Samsung galaxy s6']/ancestor::tr//a
+
 static get links(){
     return{
          delete(productName){

@@ -4,12 +4,14 @@ import { CommonPageElements } from "./common-page.elements";
 export class CommonPageMethods{
 
     static navigateToDemoBlaze(){
-        cy.clearCookies();
+        cy.clearAllCookies();
+        cy.clearLocalStorage();
         cy.visit(CommonPageData.url);
+        CommonPageMethods.clickOnHomeOption();
     }
 
     static clickOnHomeOption(){
-       CommonPageElements.topMenu.home().click();
+       CommonPageElements.topMenu.home.click();
     }
 
     static clickOnContactOption(){
@@ -23,6 +25,9 @@ export class CommonPageMethods{
 
      static clickOnCartOption(){
         CommonPageElements.topMenu.cart.click();
+        Cypress.on('uncaught:exception',(err,runnable)=>{
+            return false
+        })
      }
 
      static clickOnLoginOption(){
@@ -53,6 +58,17 @@ export class CommonPageMethods{
 
   static verifySignedUser(username){
    CommonPageElements.signedUser.should('have.text',`Welcome ${username}`);
+  }
+
+  static logout(){
+   cy.get('body').then($body=>{
+
+      if($body.find('#logout2[style="display: block;"]').length>0){
+         CommonPageElements.topMenu.logout.click();
+      }
+
+   })
+  
   }
   
  

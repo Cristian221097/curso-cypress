@@ -3,11 +3,11 @@ import { ThankYouForYourPurchaseElements } from "./thank-you-for-your-purchase.e
 export class ThankYouForYourPurchaseMethods{
 
     static clickOnOkButton(){
-        ThankYouForYourPurchaseElements.buttons.ok().click();
+        ThankYouForYourPurchaseElements.buttons.ok.click();
     }
 
     static verifyGreenCheckMarkIsDisplayed(){
-        ThankYouForYourPurchaseElements.icons.greenCheckMark.should('exist');
+        ThankYouForYourPurchaseElements.icons.greenCheckMark().should('exist');
     }
 
 }
